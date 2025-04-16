@@ -4,10 +4,13 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: '/dynamic-form',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'dynamic-form',
-    loadComponent: () => import('./components/dynamic-form/dynamic-form.component').then(m => m.DynamicFormComponent)
-  }
+    loadComponent: () =>
+      import(
+        './components/dynamic-form/dynamic-form.component'
+      ).then((m) => m.DynamicFormComponent),
+  },
 ];

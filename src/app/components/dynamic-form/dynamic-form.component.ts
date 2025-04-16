@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './dynamic-form.component.html',
-  styleUrl: './dynamic-form.component.scss'
+  styleUrl: './dynamic-form.component.scss',
 })
-export class DynamicFormComponent {
-
-}
+export class DynamicFormComponent {}
