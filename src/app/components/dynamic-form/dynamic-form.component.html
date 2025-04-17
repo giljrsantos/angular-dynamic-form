@@ -1,3 +1,24 @@
 <nz-card nzTitle="Formulário Dinamico">
 
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <ng-container *ngFor="let field of fields">
+
+      <nz-form-item>
+        <nz-form-label [nzFor]="field.key">{{ field.label}}</nz-form-label>
+        <nz-form-control [nzErrorTip]="'Campo Obrigatório'">
+          <input *ngIf="field.type !== 'select'" [type]="field.type" nz-input [formControlName]="field.key" [id]="field.key" />
+
+          <nz-select *ngIf="field.type === 'select'" [formControlName]="field.key" [id]="field.key">
+            <nz-option *ngFor="let option of field.options" [nzValue]="option" [nzLabel]="option"></nz-option>
+          </nz-select>
+
+        </nz-form-control>
+      </nz-form-item>
+
+    </ng-container>
+
+    <button nz-button nzType="text" [disabled]="formGroup.invalid" >Enviar</button>
+
+  </form>
+
 </nz-card>
